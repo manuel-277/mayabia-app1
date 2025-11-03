@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayabia Angochane - Dados e Voz Grátis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .logo-icon {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .activation-form {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 3rem auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #667eea;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .benefits {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .activation-form {
+                padding: 2rem;
+                margin: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">MA</div>
+                    <h1>Mayabia Angochane</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#ativar">Ativar</a></li>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>Dados e Voz Grátis de Qualquer País</h2>
+            <p>Ative seu saldo gratuito de dados móveis e minutos de voz com Mayabia Angochane. Conecte-se ao mundo sem custos!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="features" id="recursos">
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global</h3>
+                <p>Funciona em qualquer país do mundo. Conecte-se onde estiver!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Dados Grátis</h3>
+                <p>Receba saldo gratuito de dados móveis para navegar na internet.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>Voz Grátis</h3>
+                <p>Minutos gratuitos para chamadas locais e internacionais.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Ativação Instantânea</h3>
+                <p>Ative seu saldo em segundos, sem burocracia.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="activation-form" id="ativar">
+        <h2 class="form-title">Ativar Saldo Grátis</h2>
+        <form id="activationForm">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+            </div>
+            <div class="form-group">
+                <label for="numero">Número de Telefone</label>
+                <input type="tel" id="numero" name="numero" required placeholder="+244 900 000 000">
+            </div>
+            <div class="form-group">
+                <label for="pais">País de Origem</label>
+                <select id="pais" name="pais" required>
+                    <option value="">Selecione seu país</option>
+                    <option value="ao">Angola</option>
+                    <option value="br">Brasil</option>
+                    <option value="pt">Portugal</option>
+                    <option value="us">Estados Unidos</option>
+                    <option value="other">Outro país</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="operadora">Operadora</label>
+                <input type="text" id="operadora" name="operadora" required placeholder="Ex: Movicel, Unitel, Vodafone">
+            </div>
+            <button type="submit" class="submit-btn">Ativar Saldo Grátis</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="benefits" id="beneficios">
+            <h2 class="form-title">Seus Benefícios</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>1GB Dados</h4>
+                    <p>Diário grátis</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>60 Minutos</h4>
+                    <p>De voz grátis</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Sem Validade</h4>
+                    <p>Saldo acumulável</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>24/7 Suporte</h4>
+                    <p>Atendimento contínuo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mayabia Angochane. Todos os direitos reservados.</p>
+            <p class="disclaimer">
+                *Oferta sujeita a termos e condições. Serviço disponível apenas para usuários elegíveis. 
+                Mayabia Angochane não é afiliada a nenhuma operadora de telecomunicações.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('activationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const nome = formData.get('nome');
+            const numero = formData.get('numero');
+            const pais = formData.get('pais');
+            const operadora = formData.get('operadora');
+            
+            // Simular ativação
+            const loading = document.querySelector('.submit-btn');
+            loading.textContent = 'Processando...';
+            loading.disabled = true;
+            
+            setTimeout(() => {
+                alert(`✅ Ativação bem-sucedida!\n\nOlá ${nome}!\nSeu saldo gratuito foi ativado:\n• 1GB de dados diários\n• 60 minutos de voz\n\nNúmero: ${numero}\nOperadora: ${operadora}\n\nObrigado por usar Mayabia Angochane!`);
+                
+                loading.textContent = 'Ativar Saldo Grátis';
+                loading.disabled = false;
+                this.reset();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+
